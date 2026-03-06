@@ -3,8 +3,8 @@ with source as (
 )
 
 select
-    date_date                    as order_date,
-    orders_id                    as order_id,
-    customers_id                 as customer_id,
+    date_date as order_date,
+    CAST(orders_id  AS STRING) as order_id,
+    CAST(customers_id  AS STRING) as customer_id,
     net_sales
 from source
