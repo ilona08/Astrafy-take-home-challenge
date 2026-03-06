@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: int_orders_segmented
+    description: "Segmentation client sur fenêtre glissante 12 mois"
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: client_id
+        tests:
+          - not_null
+      - name: order_date
+        tests:
+          - not_null
+      - name: order_segmentation
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['New', 'Returning', 'VIP']

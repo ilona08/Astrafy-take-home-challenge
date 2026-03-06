@@ -32,9 +32,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dbt_astrafy:
     staging:
-      +materialized: view
-    intermediate:
+      +schema: staging 
       +materialized: view
     marts:
+      +schema: marts
       +materialized: table
 

@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: "Toutes les commandes 2022–2023 avec quantité de produits par commande"
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        tests:
+          - not_null
+      - name: order_date
+        tests:
+          - not_null
+      - name: qty_product
+        tests:
+          - not_null
+
+  - name: fct_orders_segmented
+    description: "Commandes 2023 avec segmentation client (New / Returning / VIP)"
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: client_id
+        tests:
+          - not_null
+      - name: order_segmentation
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['New', 'Returning', 'VIP']

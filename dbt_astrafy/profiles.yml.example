@@ -1,0 +1,15 @@
+astrafy_take_home_challenge:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: my-project-ilona
+      dataset: dbt_astrafy
+      threads: 4
+      keyfile: /path/to/your/service-account.json
+      # Alternatively, use oauth:
+      # method: oauth
+      # project: my-project-ilona
+      # dataset: dbt_astrafy
+      # threads: 4
