@@ -1,7 +1,7 @@
 --What is the average number of products per order for each month of the year 2023?
 select round(count(product_id)/count(distinct o.order_id),2) as avg_product_per_order, extract(month from order_date) as month
- from `dbt_astrafy_staging.stg_orders` o
- left join (select order_id,product_id from `dbt_astrafy.stg_sales` ) s on o.order_id=s.order_id
+ from {{ ref('stg_orders') }} o
+ left join (select order_id,product_id from {{ ref('stg_sales') }} ) s on o.order_id=s.order_id
 where extract(year from order_date)=2023
 group by 2
 order by 2

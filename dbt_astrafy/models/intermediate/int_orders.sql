@@ -6,7 +6,8 @@ SELECT o.order_date,
 FROM {{ ref('stg_orders') }} o
 LEFT JOIN
   (
-    SELECT order_id, COUNT(DISTINCT product_id) AS qty_product
+    SELECT order_id,
+    SUM(qty) AS qty_product
     FROM {{ ref('stg_sales') }}
     GROUP BY 1
   ) s

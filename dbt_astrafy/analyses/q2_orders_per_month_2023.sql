@@ -1,7 +1,7 @@
 --What is the number of orders per month in the year 2023?
 
 select count(distinct order_id), extract(month from order_date) as month
- from `dbt_astrafy_staging.stg_orders`
+ from {{ ref('stg_orders') }}
 where extract(year from order_date)=2023
 group by 2
 order by 2

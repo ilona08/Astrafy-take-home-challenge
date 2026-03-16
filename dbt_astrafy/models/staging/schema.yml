@@ -29,6 +29,15 @@ models:
       - name: product_id
         tests:
           - not_null
+      - name: customer_id
+        tests:
+          - not_null
+      - name: order_date
+        tests:
+          - not_null
+      - name: net_sales
+        tests:
+          - not_null
       - name: qty
         tests:
           - not_null

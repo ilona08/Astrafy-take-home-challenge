@@ -1,12 +1,14 @@
 version: 2
 
 models:
-  - name: fct_orders
-    description: "Toutes les commandes 2022–2023 avec quantité de produits par commande"
+  - name: fct_sales
+    description: "Toutes les commandes 2023 avec quantité de produits par commande"
     columns:
       - name: order_id
         tests:
-          - unique
+          - not_null
+      - name: product_id
+        tests:
           - not_null
       - name: customer_id
         tests:
@@ -14,9 +16,13 @@ models:
       - name: order_date
         tests:
           - not_null
-      - name: qty_product
+      - name: net_sales
         tests:
           - not_null
+      - name: qty
+        tests:
+          - not_null
+
 
   - name: fct_orders_segmented
     description: "Commandes 2023 avec segmentation client (New / Returning / VIP)"

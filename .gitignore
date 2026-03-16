@@ -3,4 +3,6 @@ target/
 logs/
 memo_git.txt
 .env
+lookml/_archive
+
 

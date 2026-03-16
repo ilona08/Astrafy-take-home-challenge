@@ -1,5 +1,5 @@
-view: fct_orders_segmented {
-  sql_table_name: `my-project-ilona.dbt_astrafy_marts.fct_orders_segmented` ;;
+view: orders_segmented {
+  sql_table_name: `@{gcp_project}.dbt_astrafy_marts.fct_orders_segmented` ;;
 
   dimension: order_id {
     primary_key: yes
@@ -7,12 +7,12 @@ view: fct_orders_segmented {
     sql: ${TABLE}.order_id ;;
   }
 
-  dimension: client_id {
+  dimension: customer_id {
     type: string
     sql: ${TABLE}.client_id ;;
   }
 
-  dimension_group: order {
+  dimension_group: order_date {
     type: time
     timeframes: [date, week, month, quarter, year]
     sql: ${TABLE}.order_date ;;
@@ -38,13 +38,13 @@ view: fct_orders_segmented {
 
   measure: count_orders {
     type: count
-    drill_fields: [order_id, client_id, order_date]
+    drill_fields: [order_id, customer_id, order_date]
     description: "Nombre de commandes"
   }
 
   measure: count_customers {
     type: count_distinct
-    sql: ${client_id} ;;
+    sql: ${customer_id} ;;
     description: "Nombre de clients uniques"
   }
 }

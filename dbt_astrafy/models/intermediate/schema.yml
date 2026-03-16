@@ -20,3 +20,43 @@ models:
           - accepted_values:
               arguments:
                 values: ['New', 'Returning', 'VIP']
+
+
+  - name: int_orders
+    description: "Toutes les commandes 2022–2023 avec quantité de produits par commande"
+    columns:
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        tests:
+          - not_null
+      - name: order_date
+        tests:
+          - not_null
+      - name: qty_product
+        tests:
+          - not_null
+
+  - name: int_sales
+    description: "Toutes les commandes 2022–2023"
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+      - name: product_id
+        tests:
+          - not_null
+      - name: customer_id
+        tests:
+          - not_null
+      - name: order_date
+        tests:
+          - not_null
+      - name: net_sales
+        tests:
+          - not_null
+      - name: qty
+        tests:
+          - not_null

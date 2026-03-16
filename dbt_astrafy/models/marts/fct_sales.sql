@@ -1,8 +1,4 @@
-SELECT order_date,
-    customer_id,
-    order_id,
-    product_id,
-    net_sales,
-    qty 
-FROM {{ ref('stg_sales') }} o
+--table des commandes avec les quantités de ventes
+SELECT *
+FROM {{ ref('int_sales') }}
 WHERE EXTRACT(year FROM order_date)=2023
