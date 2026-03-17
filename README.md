@@ -1,5 +1,9 @@
 # Astrafy — BI Engineer Take-Home Challenge
 
+## Avant de lire le projet
+Je conseille de ne pas se baser sur ce répertoire mais plutôt sur celui de la branche "refactor" qui est une version corrigée de celui-ci.
+Néanmoins si vous voulez regarder la version envoyé le 6 mars, vous la trouverez sur la branche main.
+
 ## Stack
 - **dbt** — transformation & modélisation
 - **BigQuery** — data warehouse
